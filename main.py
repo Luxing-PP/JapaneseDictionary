@@ -15,6 +15,7 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(service=service, options=options)
 driver.set_page_load_timeout(40)
 
+
 def persist(info: list):
     if not os.path.exists(PERSIST_PATH):
         createMarkDownFile()
@@ -82,7 +83,7 @@ def debug():
 
 
 if __name__ == '__main__':
-    print('输入要查找的日文词汇，停止查找输入 q')
+    print('输入要查找的日文词汇，退出输入q')
     while True:
         word = input()
         if word == 'q':
