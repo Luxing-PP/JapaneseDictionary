@@ -55,9 +55,13 @@ def reptile(word) -> list:
         base = [' '] * 7
         # 0.Tag 留空
         base[1] = word_info.find("div", {"class": "word-text"}).find("h2").get_text()
-        base[2] = word_simple.find("h2").get_text()
+
+        characteristic = word_simple.find("h2")
+        base[2] = characteristic.get_text() if characteristic is not None else 'None'
+
         base[3] = word_info.find("div", {"class": "pronounces"}).find("span").get_text()
-        base[4] = word_info.find("span", {"class": "pronounce-value-jp"}).get_text()
+        pronounce_jp = word_info.find("span", {"class": "pronounce-value-jp"})
+        base[4] = pronounce_jp.get_text() if pronounce_jp is not None else 'None'
         # 5. 助记 留空
 
         explains = list(map(lambda a: a.get_text(), word_simple.find_all("li")))
