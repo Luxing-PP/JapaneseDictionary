@@ -13,7 +13,7 @@ service = Service('chromedriver.exe')
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 driver = webdriver.Chrome(service=service, options=options)
-driver.set_page_load_timeout(40)
+driver.set_page_load_timeout(10)
 
 
 def persist(info: list):
